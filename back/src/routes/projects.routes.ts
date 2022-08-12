@@ -1,12 +1,13 @@
 import { Router } from "express";
 import { validateToken } from "../middlewares/validateToken.Middleware";
-import { addProjectController } from "../controllers/addProject.controller";
-import { getProjectController } from "../controllers/getProject.controller";
-import { updateProjectController } from "../controllers/updateProject.controller";
-import { deleteProjectController } from "../controllers/deleteProject.controller";
-import { getProjectByIdController } from "../controllers/getProjectById.controller";
-import validateSchema from "../middlewares/validateSchema.Middleware";
+import { addProjectController } from "../controllers/projects/addProject.controller";
+import { getProjectController } from "../controllers/projects/getProject.controller";
+
+import { validateSchema } from "../middlewares/validateSchema.Middleware";
 import { createProjectSchema } from "../schemas/project/create.schema";
+import { getProjectByIdController } from "../controllers/projects/getProjectById.controller";
+import { updateProjectController } from "../controllers/projects/updateProject.controller";
+import { deleteProjectController } from "../controllers/projects/deleteProject.controller";
 
 export const projectRouter = Router();
 

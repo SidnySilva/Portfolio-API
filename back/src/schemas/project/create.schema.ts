@@ -10,20 +10,7 @@ export const createProjectSchema = yup.object().shape({
     .required("Description: Required")
     .min(10, "Description: Minimun 10 characters"),
   date: yup.string().required("Date: Required"),
-  linkFront: yup
-    .string()
+  linkFront: yup.string().notRequired(),
 
-    .matches(
-      /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm,
-      "Invalid front link. Ex: https://www.siteName.com/",
-    )
-    .nullable(),
-  linkBack: yup
-    .string()
-    .notRequired()
-    .matches(
-      /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm,
-      "Invalid back link. Ex: https://www.siteName.com/",
-    )
-    .nullable(),
+  linkBack: yup.string().notRequired(),
 });
