@@ -4,7 +4,6 @@ import { loginService } from "../../services/user/login.service";
 
 export const loginController = async (req: Request, res: Response) => {
   try {
-    console.log("oi?");
     const { email, password } = req.body;
     const token = await loginService(email, password);
 

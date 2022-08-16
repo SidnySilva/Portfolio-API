@@ -1,6 +1,10 @@
 import { prisma } from "../../app";
 import { ErrorHandler } from "../../helpers/error.helper";
-import { regexDate, regexLink } from "../../utils/regex";
+import {
+  regexDate,
+  verifyBackLinks,
+  verifyFrontLinks,
+} from "../../utils/regex";
 
 interface Iproject {
   name: string;
@@ -24,18 +28,9 @@ export const addProjectService = async (
     throw new ErrorHandler(400, `Date format DD/MM/YYYY`);
   }
 
-  if (project.linkFront != "" && !project.linkFront.match(regexLink)) {
-    throw new ErrorHandler(
-      400,
-      "Invalid front link. Ex: https://www.siteName.com/",
-    );
-  }
-  if (project.linkBack != "" && !project.linkBack.match(regexLink)) {
-    throw new ErrorHandler(
-      400,
-      "Invalid back link. Ex: https://www.siteName.com/",
-    );
-  }
+  verifyFrontLinks(project.linkFront);
+  verifyBackLinks(project.linkBack);
+
   const user = await prisma.user.findUnique({
     where: { email: userEmail },
   });

@@ -4,6 +4,7 @@ import { prisma } from "../../app";
 export const getProjectByIdService = async (id: string, userEmail: string) => {
   const user = await prisma.user.findUnique({
     where: { email: userEmail },
+    include: { projects: true },
   });
 
   const project = await prisma.project.findUnique({
@@ -17,6 +18,13 @@ export const getProjectByIdService = async (id: string, userEmail: string) => {
   if (user.user_id !== project.userUser_id) {
     throw new ErrorHandler(401, "Unauthorized. Maybe this isn't your project.");
   }
+  const { nickname, email } = user;
 
-  return user;
+  const newUser = {
+    nickname: nickname,
+    email: email,
+    project: project,
+  };
+
+  return newUser;
 };

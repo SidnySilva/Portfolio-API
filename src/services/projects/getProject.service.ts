@@ -1,4 +1,3 @@
-import { ErrorHandler } from "../../helpers/error.helper";
 import { prisma } from "../../app";
 
 export const getProjectService = async (userEmail: string) => {
@@ -7,5 +6,13 @@ export const getProjectService = async (userEmail: string) => {
     include: { projects: true },
   });
 
-  return user;
+  const { nickname, email } = user;
+
+  const newUser = {
+    nickname: nickname,
+    email: email,
+    projects: user.projects,
+  };
+
+  return newUser;
 };
