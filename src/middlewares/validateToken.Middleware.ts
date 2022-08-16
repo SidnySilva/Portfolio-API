@@ -11,19 +11,22 @@ export const validateToken = async (
   const token: string = req.headers.authorization;
 
   if (!token) {
-    throw new Error("Missing authorization token.");
+    throw new ErrorHandler(400, "Missing authorization token.");
   }
-  return verify(
-    token,
-    process.env.SECRET_KEY,
-    (err: VerifyErrors, decoded: string | JwtPayload) => {
-      if (err) {
-        throw new Error("Invalid Token.");
-      }
 
-      req.decoded = decoded as Partial<User>;
-
-      return next();
-    },
-  );
+  try {
+    verify(
+      token,
+      process.env.SECRET_KEY,
+      (err: VerifyErrors, decoded: string | JwtPayload) => {
+        if (err) {
+          throw new ErrorHandler(401, `Unauthorized`);
+        }
+        req.decoded = decoded as Partial<User>;
+        return next();
+      },
+    );
+  } catch (err) {
+    return handleError(err, res);
+  }
 };
