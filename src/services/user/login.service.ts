@@ -8,7 +8,6 @@ export const loginService = async (email: string, password: string) => {
   const user = await prisma.user.findUnique({
     where: { email: email },
   });
-  console.log("oi");
   if (!user) {
     throw new ErrorHandler(401, "You aren't my boss");
   }

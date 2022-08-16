@@ -8,7 +8,15 @@ export const createUserSchema = yup.object().shape({
     .required("Password: Required")
     .matches(
       /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/,
-      "Mínimo 8 dígitos;Pelo menos um número;Pelo menos uma letra maiúscula;Pelo menos uma letra minúscula;Um caractere especial",
+      {
+        message: {
+          Minimun: "8 characters",
+          necessaryNumber: "At least a number",
+          necessaryUppercase: "At least a Uppercase letter",
+          necessaryLowercase: "At least a Lowercase letter",
+          necessarySpecial: "At least a special character",
+        },
+      },
     ),
   confirmPassword: yup
     .string()
