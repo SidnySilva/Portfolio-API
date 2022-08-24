@@ -15,6 +15,7 @@ export const registerService = async (userData: User) => {
       email: userData.email,
     },
   });
+
   const userNickName = await prisma.user.findUnique({
     where: {
       nickname: userData.nickname,

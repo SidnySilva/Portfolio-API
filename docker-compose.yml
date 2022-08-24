@@ -1,6 +1,6 @@
 services:
   api:
-    container_name: my_portfolio
+    container_name: myAPI
     build:
       context: .
       dockerfile: Dockerfile
@@ -12,13 +12,13 @@ services:
       - 3000:3000
     depends_on:
       - pg
-    command: bash -c 'yarn build'
+    command: bash -c 'yarn build && yarn dev'
   pg:
-    container_name: kenzie_db
+    container_name: myDb
     image: postgres
     env_file:
-      - ./.env
+      - .env
     expose:
       - 5432
     ports:
-      - 5432:5432
+      - 5433:5432

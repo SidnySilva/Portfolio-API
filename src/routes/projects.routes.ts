@@ -17,7 +17,7 @@ projectRouter.post(
   validateToken,
   addProjectController,
 );
-projectRouter.get("/projects", validateToken, getProjectController);
-projectRouter.get("/projects/:id?", validateToken, getProjectByIdController);
+projectRouter.get("/projects", getProjectController);
+projectRouter.get("/projects/:id", validateToken, getProjectByIdController);
 projectRouter.patch("/projects/:id", validateToken, updateProjectController);
 projectRouter.delete("/projects/:id", validateToken, deleteProjectController);

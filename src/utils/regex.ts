@@ -6,12 +6,14 @@ export const regexDate =
 export const regexLink =
   /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm;
 
-export const verifyFrontLinks = (linkFront) => {
-  if (linkFront != "" && !linkFront.match(regexLink)) {
+export const verifyFrontLinks = (linksArray) => {
+  if (linksArray[0] != "" && !linksArray[0].match(regexLink)) {
     throw new ErrorHandler(
       400,
       "Invalid Front-end link. Ex: https://www.siteName.com/",
     );
+  }
+  if (linksArray.length === 2) {
   }
 };
 

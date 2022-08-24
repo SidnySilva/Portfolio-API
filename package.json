@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "16.16.x"
+  },
   "dependencies": {
     "@prisma/client": "^4.1.1",
     "bcrypt": "^5.0.1",

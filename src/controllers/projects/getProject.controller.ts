@@ -4,9 +4,10 @@ import { getProjectService } from "../../services/projects/getProject.service";
 
 export const getProjectController = async (req: Request, res: Response) => {
   try {
-    const { email } = req.decoded;
+    // const { email } = req.decoded;
 
-    const data = await getProjectService(email);
+    // const data = await getProjectService(email);
+    const data = await getProjectService();
 
     return res.status(200).json(data);
   } catch (err) {

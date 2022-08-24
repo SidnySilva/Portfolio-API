@@ -1,10 +1,10 @@
-import { Project, User } from "@prisma/client";
+export {};
 
 declare global {
   namespace Express {
     interface Request {
-      validated: User | Project;
-      decoded: Partial<User>;
+      validated: any;
+      decoded: any;
       email: string;
     }
   }

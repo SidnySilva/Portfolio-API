@@ -1,4 +1,3 @@
-import { User } from "@prisma/client";
 import { NextFunction, Request, Response } from "express";
 import { verify, JwtPayload, VerifyErrors } from "jsonwebtoken";
 import { ErrorHandler, handleError } from "../helpers/error.helper";
@@ -10,19 +9,18 @@ export const validateToken = async (
 ) => {
   const token: string = req.headers.authorization;
 
-  if (!token) {
-    throw new ErrorHandler(400, "Missing authorization token.");
-  }
-
   try {
     verify(
       token,
       process.env.SECRET_KEY,
       (err: VerifyErrors, decoded: string | JwtPayload) => {
+        if (!token) {
+          throw new ErrorHandler(400, "Missing authorization token.");
+        }
         if (err) {
           throw new ErrorHandler(401, `Unauthorized`);
         }
-        req.decoded = decoded as Partial<User>;
+        req.decoded = decoded;
         return next();
       },
     );

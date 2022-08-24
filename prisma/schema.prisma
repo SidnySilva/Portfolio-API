@@ -21,13 +21,15 @@ model User {
 }
 
 model Project {
-  project_id  String  @id @unique @default(uuid())
+  project_id  String   @id @unique @default(uuid())
+  imageLink   String
   name        String
-  description String
+  type        String
+  description String[]
   date        String
-  linkFront   String?
-  linkBack    String?
-  User        User?   @relation(fields: [userUser_id], references: [user_id])
+  links       String[]
+  engines     String[]
+  User        User?    @relation(fields: [userUser_id], references: [user_id])
   userUser_id String?
 
   @@map("projects")

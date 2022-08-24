@@ -11,11 +11,13 @@ CREATE TABLE "user" (
 -- CreateTable
 CREATE TABLE "projects" (
     "project_id" TEXT NOT NULL,
+    "imageLink" TEXT NOT NULL,
     "name" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "date" TEXT NOT NULL,
-    "linkFront" TEXT,
-    "linkBack" TEXT,
+    "links" TEXT[],
+    "engines" TEXT[],
     "userUser_id" TEXT,
 
     CONSTRAINT "projects_pkey" PRIMARY KEY ("project_id")
