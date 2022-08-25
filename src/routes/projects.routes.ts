@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { validateToken } from "../middlewares/validateToken.Middleware";
 import { addProjectController } from "../controllers/projects/addProject.controller";
 import { getProjectController } from "../controllers/projects/getProject.controller";
 
@@ -13,11 +12,14 @@ export const projectRouter = Router();
 
 projectRouter.post(
   "/projects",
-  validateSchema(createProjectSchema),
-  validateToken,
+  // validateSchema(createProjectSchema),
   addProjectController,
 );
-projectRouter.get("/projects", validateToken, getProjectController);
-projectRouter.get("/projects/:id", validateToken, getProjectByIdController);
-projectRouter.patch("/projects/:id", validateToken, updateProjectController);
-projectRouter.delete("/projects/:id", validateToken, deleteProjectController);
+projectRouter.get("/projects", getProjectController);
+projectRouter.get("/projects/:id", getProjectByIdController);
+projectRouter.patch(
+  "/projects/:id",
+  // validateSchema(createProjectSchema),
+  updateProjectController,
+);
+projectRouter.delete("/projects/:id", deleteProjectController);

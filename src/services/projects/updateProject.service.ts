@@ -10,10 +10,10 @@ interface IBody {
   imageLink: string;
   name: string;
   type: string;
-  description: string;
+  description: string[];
   date: string;
-  links: string;
-  engines: string;
+  links: string[];
+  engines: string[];
 }
 export const updateProjectService = async (id: string, body: IBody) => {
   const project = await prisma.project.findUnique({
@@ -33,10 +33,10 @@ export const updateProjectService = async (id: string, body: IBody) => {
       name: body.name === "" ? project?.name : body.name,
       type: body.type === "" ? project?.type : body.type,
       description:
-        body.description === "" ? project?.description : body.description,
+        body.description === [] ? project?.description : body.description,
       date: body.date === "" ? project?.date : body.date,
-      links: body.links === "" ? project?.links : body.links,
-      engines: body.engines === "" ? project?.engines : body.engines,
+      links: body.links === [] ? project?.links : body.links,
+      engines: body.engines === [] ? project?.engines : body.engines,
     },
   });
 

@@ -5,9 +5,8 @@ import { deleteProjectService } from "../../services/projects/deleteProject.serv
 export const deleteProjectController = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const { email } = req.decoded;
 
-    const data = await deleteProjectService(id, email);
+    const data = await deleteProjectService(id);
 
     return res.status(204).json({ message: data });
   } catch (err) {

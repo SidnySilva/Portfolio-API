@@ -4,9 +4,7 @@ import { addProjectService } from "../../services/projects/addProject.service";
 
 export const addProjectController = async (req: Request, res: Response) => {
   try {
-    const { email } = req.decoded;
-
-    const data = await addProjectService(req.body, email);
+    const data = await addProjectService(req.body);
 
     return res.status(200).json(data);
   } catch (err) {

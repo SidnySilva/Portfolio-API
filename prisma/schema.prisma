@@ -10,16 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  user_id  String    @id @unique @default(uuid())
-  nickname String    @unique
-  email    String    @unique
-  password String
-  projects Project[]
-
-  @@map("user")
-}
-
 model Project {
   project_id  String   @id @unique @default(uuid())
   imageLink   String
@@ -29,8 +19,6 @@ model Project {
   date        String
   links       String[]
   engines     String[]
-  User        User?    @relation(fields: [userUser_id], references: [user_id])
-  userUser_id String?
 
   @@map("projects")
 }
