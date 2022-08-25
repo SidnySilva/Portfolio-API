@@ -1,10 +1,5 @@
 import { prisma } from "../../app";
 import { ErrorHandler } from "../../helpers/error.helper";
-import {
-  regexLink,
-  verifyBackLinks,
-  verifyFrontLinks,
-} from "../../utils/regex";
 
 interface IBody {
   imageLink: string;
@@ -23,8 +18,6 @@ export const updateProjectService = async (id: string, body: IBody) => {
   if (!project) {
     throw new ErrorHandler(400, "Project not found.");
   }
-
-  verifyFrontLinks(body.links);
 
   const projectUpdate = await prisma.project.update({
     where: { project_id: id },
