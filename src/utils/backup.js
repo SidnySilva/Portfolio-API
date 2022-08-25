@@ -17,7 +17,7 @@
 //         "js",
 //         "html",
 //         "css"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://i.ibb.co/MgvPy3Y/Screenshot-from-2022-08-23-18-13-20.png",
@@ -36,7 +36,7 @@
 //         "js",
 //         "html",
 //         "css"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://cdn.jsdelivr.net/npm/@programming-languages-logos/python@0.0.0/python.png",
@@ -54,7 +54,7 @@
 //         "py",
 //         "csv",
 //         "flask"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://i.ibb.co/ygg0Xv3/Screenshot-from-2022-08-23-18-23-24.png",
@@ -73,7 +73,7 @@
 //         "js",
 //         "html",
 //         "css"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://i.ibb.co/rQgkB5Z/Screenshot-from-2022-08-23-18-29-21.png",
@@ -92,7 +92,7 @@
 //         "js",
 //         "html",
 //         "css"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://scontent.fcgh4-1.fna.fbcdn.net/v/t39.30808-6/298466005_3310412515855530_6592823048874243558_n.jpg?stp=dst-jpg_s206x206&_nc_cat=111&ccb=1-7&_nc_sid=da31f3&_nc_eui2=AeG6pmUHmKYFce_Zf17ZRIHqKYUbDqR8ZCAphRsOpHxkIBBnYey_83TliwyRVuO-VxCT3js98OaGNncjSfZvpzsa&_nc_ohc=rynO3e7rWecAX-2c9Yz&_nc_zt=23&_nc_ht=scontent.fcgh4-1.fna&oh=00_AT9ivlnLc5hUZzzDbU4JK8TD_Q7zv6K6ctn-4ziDbhS-Lg&oe=6309A288",
@@ -118,7 +118,7 @@
 //         "prisma",
 //         "express",
 //         "docker"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://i.ibb.co/SxqnWy5/Screenshot-from-2022-08-23-17-19-32.png",
@@ -142,7 +142,7 @@
 //         "jwt",
 //         "axios",
 //         "hook"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://cdn.jsdelivr.net/npm/@programming-languages-logos/python@0.0.0/python.png",
@@ -161,7 +161,7 @@
 //         "jwt",
 //         "flask",
 //         "alembic"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://cdn.jsdelivr.net/npm/@programming-languages-logos/python@0.0.0/python.png",
@@ -178,7 +178,7 @@
 //       "engines": [
 //         "py",
 //         "flask"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://logospng.org/download/node-js/logo-node-js-512.png",
@@ -198,7 +198,7 @@
 //         "typeORM",
 //         "jwt",
 //         "express"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://logospng.org/download/node-js/logo-node-js-512.png",
@@ -218,7 +218,7 @@
 //         "typeORM",
 //         "jwt",
 //         "express"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://logospng.org/download/node-js/logo-node-js-512.png",
@@ -238,7 +238,7 @@
 //         "typeORM",
 //         "jwt",
 //         "express"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://logospng.org/download/node-js/logo-node-js-512.png",
@@ -259,7 +259,7 @@
 //         "jwt",
 //         "express",
 //         "docker"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://i.ibb.co/PFsnvtK/Screenshot-from-2022-08-23-17-44-38.png",
@@ -281,7 +281,7 @@
 //         "jwt",
 //         "axios",
 //         "hook"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://i.ibb.co/bszqwvM/Screenshot-from-2022-08-22-19-32-00.png",
@@ -301,7 +301,7 @@
 //         "react",
 //         "styled",
 //         "redux"
-//       ],
+//       ]
 //     },
 //     {
 //       "imageLink": "https://i.ibb.co/Rg0pvJC/Screenshot-from-2022-08-23-16-40-58.png",

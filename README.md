@@ -1,120 +1,181 @@
-<h1 align="center">
-        Porfolio API
-</h1>
+# Porfolio API
 
-## Endpoints
+## Base URL:
 
-Base URL: `https://my-portfolio-sidny.herokuapp.com/`
-
-## Endpoints - Users
-
-`POST - /register/ - Req format`
-
-```json
-{
-  "nickname": "johndoe",
-  "email": "johndoe@email.com",
-  "password": "H4rdp@ssword",
-  "confirmPassword": "H4rdp@ssword"
-}
-```
-
-`201 Created`
-
-```json
-{
-  "id": "3787f5df-b813-44ff-953e-bfeb5ff3ef1d",
-  "nickname": "johndoe",
-  "email": "johndoe@email.com"
-}
-```
-
-`Wrong email - 400 Bad Request`
-
-```json
-{
-  "message": ["Invalid E-mail"]
-}
-```
-
-`Invalid password - 400 Bad Request`
-
-```json
-{
-  "message": [
-    {
-      "Minimun": "8 characters",
-      "necessaryNumber": "At least a number",
-      "necessaryUppercase": "At least a Uppercase letter",
-      "necessaryLowercase": "At least a Lowercase letter",
-      "necessarySpecial": "At least a special character"
-    }
-  ]
-}
-```
-
-`Equal email - 400 Bad Request`
-
-```json
-{
-  "message": "User already exists"
-}
-```
-
-`Empty data - 400 Bad Request`
-
-```json
-{
-  "message": [
-    "Nickname: Required",
-    "Email: Required",
-    "Password: Required",
-    {
-      "Minimun": "8 characters",
-      "necessaryNumber": "At least a number",
-      "necessaryUppercase": "At least a Uppercase letter",
-      "necessaryLowercase": "At least a Lowercase letter",
-      "necessarySpecial": "At least a special character"
-    },
-    "Confirm password: Required"
-  ]
-}
-```
-
-`POST - /login/`
-
-```json
-
-```
+### `https://my-home-api-sidny.herokuapp.com/`
 
 ## PROJECT Routes
 
-`POST - projects`
+- `POST - /projects/ - Req body`
+  ```json
+  {
+    "imageLink": "https://link.png",
+    "name": "ProjectName",
+    "type": "Project type",
+    "description": ["descriptions", "one or more descriptions"],
+    "date": "12/02/2000",
+    "links": ["https://link.com", "one or more links"],
+    "engines": ["typescript", "nodejs", "typeORM"]
+  }
+  ```
+  `SUCCESS - 200 OK`
+  ```json
+  {
+    "project_id": "198d7781-b26c-46e3-903b-a8bef5b83948",
+    "imageLink": "https://link.png",
+    "name": "ProjectName",
+    "type": "Project type",
+    "description": ["descriptions", "more descriptions"],
+    "date": "DD/MM/YYYY",
+    "links": ["https://link.com"],
+    "engines": ["typescript", "nodejs", "typeORM", "jwt", "express", "docker"]
+  }
+  ```
+  `Missing Data - 400 Bad Request`
+  ```json
+  {
+    "message": ["Name: Required", "Description: Required", "Date: Required"]
+  }
+  ```
+  `Missing Links - 400 Bad Request`
+  ```json
+  {
+    "message": "Missing project's links, at least one is needed"
+  }
+  ```
+  `Invalid Link - 400 Bad Request`
+  ```json
+  {
+    "message": "Invalid front link. Ex: https://www.siteName.com/"
+  }
+  ```
+  `Adding many - 200 OK`
+  ```json
+  {
+    "projects": [
+      {
+            "imageLink": "https://link.png",
+  			    "name": "ProjectName",
+  			    "type": "Project type",
+  			    "description": ["descriptions","one or more descriptions"],
+  			    "date": "DD/MM/YYYY",
+  			    "links": ["https://link.com","one or more links"],
+  			    "engines": ["typescript", "nodejs", "typeORM"]
+      },
+      {
+            "imageLink": "https://link.png",
+  			    "name": "ProjectName2",
+  			    "type": "Project type",
+  			    "description": ["descriptions","one or more descriptions"],
+  			    "date": "DD/MM/YYYY",
+  			    "links": ["https://link.com","one or more links"],
+  			    "engines": ["typescript", "nodejs", "typeORM"]
+      },...
+  }
+  ```
+  `Adding many - 200 OK`
+  ```json
+  {
+    "count": 2
+  }
+  ```
+- `GET - projects`
+  ```json
+  {
+    "nickname": "johndoe",
+    "email": "johndoe@email.com",
+    "projects": [
+      {
+        "project_id": "198d7781-b26c-46e3-903b-a8bef5b83948",
+        "imageLink": "https://link.png",
+        "name": "ProjectName",
+        "type": "Project type",
+        "description": [
+          "descriptions",
+          "more descriptions"
+        ],
+        "date": "12/02/2000",
+        "links": [
+          "https://link.com"
+        ],
+        "engines": [
+          "typescript",
+          "nodejs",
+          "typeORM",
+          "jwt",
+          "express",
+          "docker"
+        ]
 
-```json
-
-```
-
-`GET - projects`
-
-```json
-
-```
-
-`GET - projects/:id`
-
-```json
-
-```
-
-`PATCH - projects/:id`
-
-```json
-
-```
-
-`DELETE - projects/:id`
-
-```json
-
-```
+      },...
+    ]
+  }
+  ```
+- `GET - projects/:id`
+  ```json
+  {
+    "nickname": "johndoe",
+    "email": "johndoe@email.com",
+    "project": {
+      "project_id": "198d7781-b26c-46e3-903b-a8bef5b83948",
+      "imageLink": "https://link.png",
+      "name": "ProjectName",
+      "type": "Project type",
+      "description": ["descriptions", "more descriptions"],
+      "date": "12/02/2000",
+      "links": ["https://link.com"],
+      "engines": ["typescript", "nodejs", "typeORM", "jwt", "express", "docker"]
+    }
+  }
+  ```
+  `Wrong ID - 400 Bad Request`
+  ```json
+  {
+    "message": "Project not found."
+  }
+  ```
+- `PATCH - projects/:id - Req Body`
+  ```json
+  {
+    "imageLink": "https://link.png",
+    "name": "New ProjectName2",
+    "type": "New Project type",
+    "description": ["descriptions", "one or more descriptions"],
+    "date": "12/02/2000",
+    "links": ["https://link.com", "one or more links"],
+    "engines": ["typescript", "nodejs", "docker"]
+  }
+  ```
+  `Success - 200 OK`
+  ```json
+  {
+    "project_id": "198d7781-b26c-46e3-903b-a8bef5b83948",
+    "imageLink": "https://link.png",
+    "name": "New ProjectName2",
+    "type": "New Project type",
+    "description": ["descriptions", "one or more descriptions"],
+    "date": "12/02/2000",
+    "links": ["https://link.com", "one or more links"],
+    "engines": ["typescript", "nodejs", "docker"]
+  }
+  ```
+  `Wrong ID - 400 Bad Request`
+  ```json
+  {
+    "message": "Project not found"
+  }
+  ```
+- `DELETE - projects/:id`
+  ```json
+  No body
+  ```
+  `Success - 204 No Content`
+  ```json
+  No body returned for response
+  ```
+  `Wrong ID - 400 Bad Request`
+  ```json
+  {
+    "message": "Project not found"
+  }
+  ```
